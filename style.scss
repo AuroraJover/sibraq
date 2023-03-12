@@ -1,0 +1,1170 @@
+@use 'scss/abstracts/variables' as *;
+@use 'scss/abstracts/flex' as *;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: $raleway;
+}
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+body {
+    &.activo {
+        overflow: hidden;
+    }
+    padding-top: 108px;
+}
+h1 {
+    font-family: $poppins;
+    font-size: 4rem;
+    color: $rojologo;
+}
+h2 {
+    font-family: $poppins;
+    font-size: $sizeL;
+    text-transform: uppercase;
+}
+h3 {
+    font-family: $poppins;
+    font-size: 3rem;
+}
+h4 {
+    font-family: $poppins;
+    font-size: 2rem;
+    font-weight: 400;
+    color: white;
+}
+p {
+    font-size: 2rem;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+    line-height: 3rem;
+}
+a {
+    text-decoration: none;
+    text-transform: none;
+    color: white;
+    display: inline-block;
+    
+}
+
+.wrapper {
+    max-width: 1140px;
+    margin: auto;
+}
+hr {
+    color: $rojologo;
+    background-color: $rojologo;
+}
+.logo img {
+    width: 20rem;
+}
+.textodestacado {
+    font-weight: 800;
+    color: $rojologo;
+}
+header {
+    padding: 2rem 0;
+    position: fixed;
+    background-color: white;
+    width: 100%;
+    z-index: 9999;
+    top: 0;
+    .logoblanco {
+        display: none;
+        img {
+            width: 25rem;
+        }
+    }
+    &.activo {
+        background-color: transparent;
+        .logo {
+            display: none;
+        }
+        .logoblanco {
+            display: inline-block;
+            
+            
+        }
+    }
+    
+}
+
+.burger {
+    width: 40px;
+    height: 25px;
+    flex-direction: column;
+    .linea {
+        
+        width: 100%;
+        height: 2.5px;
+        background-color: black;
+        transform-origin: left;
+        transition: 0.5s;
+        border-radius: 30px;
+        &.activo {
+            overflow: hidden;
+            z-index: 9999;
+            &:first-child {
+                transform: rotate(35deg);
+                background-color: lightgray;
+                
+            }
+            &:nth-child(2) {
+                opacity: 0;
+            }
+            &:last-child {
+                transform: rotate(-35deg);
+                background-color: lightgray;
+                
+            }
+            header {
+                background-color: initial;
+            }
+        }
+    }
+    
+
+}
+.btn {
+    display: inline-block;
+    border: 1px solid lightgrey;
+    color: lightgrey;
+    padding: 18px 30px;
+    cursor: pointer;
+    text-align: center;
+    transition: 0.3s;
+    &:hover {
+        padding: 18px 50px;
+        color: $rojologo;
+        border: 1px solid $rojologo;
+        a {
+            color: $rojologo;
+        }
+    }
+    a {
+        text-decoration: none;
+        font-family: $poppins;
+        font-weight: 800;
+        font-size: 1.5rem;
+        color: lightgray;
+    }
+    
+}
+.menu {
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    background-color: #202020;
+    z-index: 999;
+    padding-top: 80px;
+    left: -100%;
+    top: 0;
+    transition: 0.5s;
+    &.activo {
+        top: 0;
+        left: 0;
+        bottom: 0;
+    }
+
+    &__list {
+        justify-content: center;
+        padding: 5rem 0;
+    
+        li {
+            position: relative;
+            max-width: 600px;
+            list-style: none;
+            
+            a {
+                display: block;
+                font-family: $poppins;
+                text-align: center;
+                display: block;
+                text-decoration: none;
+                font-size: 3.5rem;
+                color: lightgray;
+                margin-bottom: $sizeS;
+                font-weight: 600;
+                max-width: 400px;
+                padding: 3px 0;
+                transition: 0.3s;
+                transform-origin: 0px;
+                &:hover {
+                    transform: translate(20px);
+                    color: grey;
+                }
+            }
+        }
+    } 
+    &__final {
+        flex-direction: column;
+        .redes {
+            padding-top: 2rem;
+            a {
+            font-size: 2.5rem;
+            padding: $sizeS;
+            :hover {
+                color: $rojologo;
+            }
+            }
+        }
+        a {
+            font-size: 1.5rem;
+            font-family: $poppins;
+            font-weight: 800;
+        }
+        .btn {
+            display: inline-block;
+            border: 1px solid lightgrey;
+            color: lightgrey;
+            padding: 18px 30px;
+            cursor: pointer;
+            text-align: center;
+            transition: 0.3s;
+            &:hover {
+                padding: 18px 50px;
+                color: $rojologo;
+                border: 1px solid $rojologo;
+                a {
+                    color: $rojologo;
+                }
+            }
+            a {
+                text-decoration: none;
+                font-family: $poppins;
+                font-weight: 800;
+                font-size: 1.5rem;
+                color: lightgray;
+            }
+            
+        }
+    }
+}
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: -1;
+    background-color: rgb(0 0 0 / 34%);
+    position: absolute;
+}
+.movil {
+    display: none;
+}
+.cabecera {
+    height: 80vh;
+    position: relative;
+    background-color: rgb(0 0 0 / 34%);
+    
+    .overlay {
+        width: 100%;
+        height: 100%;
+        color: white;
+        font-size: 50px;
+        text-shadow: 1px 1px 0px black;
+        h2 {
+            text-align: center;
+        }
+    }
+    .flecha a {
+        font-size: 4rem;
+        position: absolute;
+        bottom: $sizeM;
+        i {
+            text-shadow: 1px 1px 0px black; 
+        }
+    }
+}
+.arquitectura {
+    padding: 12rem 0;
+    &__texto {
+        column-gap: $sizeXL; 
+        flex-direction: column;
+        h1 , p {
+            text-align: center;
+        }
+        
+        
+    }
+}
+.col{
+    flex: 1;
+    .overlay {
+        position: absolute;
+        background-color: rgb(17 17 17 /44%);
+        color: white;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        opacity: 0;
+        transition: 0.5s;
+    }
+}
+.subfila {
+    h3 {
+        text-align: center;
+    }
+    p {
+        text-align: center;
+        padding: $sizeS;
+    }
+    &:hover{
+        .overlay {
+            opacity: 1;
+            cursor: pointer;
+            
+        }
+        img {
+            transform: scale(1.2);
+        }
+    }
+}
+.galeria {
+    gap: $sizeM;
+    img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        transition: 0.5s;
+        object-fit: cover;
+    }
+    .col, .subfila {
+        flex: 1;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: $sizeM;
+        overflow: hidden;
+    }
+    .col25 {
+        gap: $sizeM;
+    }
+}
+
+
+.col50 {
+    flex-direction: column;
+}
+.servicios, .faq {
+    column-gap: 20rem;
+    padding: 12rem 0;
+    .col1 {
+        width: 30%;
+    }
+    h2 {
+        font-size: 2rem;
+        color: $rojologo;
+    }
+    .col2 {
+        width: 70%;
+        h2 {
+            color: black;
+            font-weight: 600;
+            text-transform: inherit;
+
+            font-size: 4rem;
+        }
+        li {
+            list-style: none;
+            font-size: 2rem;
+            padding-top: $sizeM;
+            i {
+                color: $rojologo;
+                padding-right: $sizeM;
+            }
+            
+        }
+    }
+}
+.col33 {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    overflow: hidden;
+}
+
+.comotrabajamos {
+    gap: $sizeM;
+    flex-wrap: wrap;
+    img {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+   
+    .cuadrado {
+        position: absolute;
+        background-color: rgb(17 17 17 /44%);
+        color: white;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: $sizeM;
+
+        
+        img {
+            position: absolute;
+            z-index: -1;
+            object-fit: cover;
+            
+            
+        }
+        h4 {
+            text-shadow: 1px 1px 0px black;
+            text-align: center;
+        }
+    }
+}
+.cajauno {
+    flex-direction: column;
+    background-color: #202020;
+    border: 5px solid #202020;
+}
+.cajas {
+    padding: 12rem 0;
+    gap: 8rem;
+    .col33 {
+        flex: 1;
+        
+        .cajaimg {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            overflow: hidden;
+            img {
+                width: 100%;
+                height: 100%;
+                display: block;
+                transition: 0.5s;
+            }
+           
+            .cuadrado {
+                position: absolute;
+                background-color: rgb(17 17 17 /44%);
+                color: white;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: $sizeM;
+        
+                
+                img {
+                    position: absolute;
+                    z-index: -1;
+                    object-fit: cover;
+                    
+                    
+                }
+                h3 {
+                    text-shadow: 1px 1px 0px black;
+                    text-align: center;
+                    text-transform: initial;
+                    color: white;
+                    font-size: 3rem;
+                    cursor: pointer;
+                }
+            }
+        }
+        .cajatexto {
+            padding: 4rem;
+            ul {
+                li {
+                    list-style: none;
+                    font-size: 1.6rem;
+                    padding-top: $sizeS;
+                    text-align: initial;
+                    color: white;
+                i {
+                    color: $rojologo;
+                    padding-right: $sizeS;
+                    font-size: 1.5rem;
+                }
+            }
+            }
+        }
+        .btn {
+            margin-bottom: 4rem;
+        }
+    }
+}
+.cajaimg:hover > img{
+    transform: scale(1.2);
+}
+.iconos {
+    padding: 12rem 0;
+    gap: 8rem;
+    .col33 {
+        .opcion {
+            flex-direction: column;
+            text-align: center;
+            h3 {
+                font-size: 2.5rem;
+                font-weight: 500;
+                padding-top: 3rem;
+                padding-bottom: 4rem;
+            }
+            img {
+                width: 7rem;
+                align-items: center;
+            }
+            hr {
+                width: 50%;
+                margin: auto;
+                
+            }
+            ul {
+                padding-top: 4rem;
+                li {
+                    list-style: none;
+                    font-size: 1.6rem;
+                    padding-top: $sizeS;
+                    text-align: initial;
+                i {
+                    color: $rojologo;
+                    padding-right: $sizeS;
+                    font-size: 1.5rem;
+                }
+            }
+            }
+            
+        }
+    }
+}
+
+.contacto {
+    background-color: #202020;
+    padding: 12rem 0;
+    h3 {
+        color: white;
+        font-size: 4rem;
+        padding-bottom: 2.5rem;
+    }
+    .filas {
+        gap: 3rem;
+    }
+    .col50 {
+        flex: 1;
+        padding-top: 2rem;
+        width: 100%;
+        p {
+            color: white;
+        }
+        .formulario {
+            width: 100%;
+            .fila {
+                display: block;
+                width: 100%;
+                padding: 2rem 0;
+            }
+            input, textarea {
+                width: 100%;
+                background-color: #202020;
+                display: block;
+                border: 0;
+                font-size: 2rem;
+                outline: none;
+                padding: 10px;
+                color: white;
+                border-bottom: 1px solid $rojologo;
+            }
+            button {
+                background-color: $rojologo;
+                border: 1px solid $rojologo;
+                display: inline-block;
+                color: white;
+                padding: 18px 30px;
+                cursor: pointer;
+                text-align: center;
+                transition: 0.3s;
+                font-size: 2rem;
+                &:hover {
+                    padding: 18px 50px;
+                    background-color: #202020;
+                    border: 1px solid $rojologo;
+                    
+                }
+            }
+    
+            
+        }
+    }   
+}
+footer {
+    height: 100%;
+    .col50 {
+        flex-direction: row;
+        flex: 1;
+        flex-wrap: wrap;
+        iframe {
+            width: 100%;
+            height: 100%;
+        }
+        .iconoscontacto {
+            text-align: center;
+            justify-content: center;
+            padding: 3rem 8rem;
+            width: 50%;
+            img {
+                width: 4rem;
+            }
+            p {
+                font-size: 1.5rem;
+            }
+            
+        }
+        .footerredes {
+            background-color: $rojologo;
+            height: 100%;
+            padding: 3rem 8rem;
+            width: 50%;
+            h3 {
+                color: white;
+            }
+            ul {
+                padding: 2.5rem 0;
+                li {
+                    list-style: none;
+                    font-size: 2rem;
+                    color: white;
+                    font-weight: 800;
+                    padding: 2.5rem 0;
+                    justify-content: center;
+                    align-items: center;
+                    align-content: center;
+                    a {
+                        padding-right: 2.5rem;
+                        &:hover {
+                            color: #202020;
+                        }
+                        
+                        i {
+                            font-size: 3rem;
+                            
+                        }
+                    }
+                }
+            }
+            
+        }
+    }
+    
+}
+.barrafinal {
+    background-color: #202020;
+    p {
+        color: white;
+        font-size: 1.5rem;
+    }
+    .textoslegales {
+        display: flex;
+        list-style: none;
+        font-size: 1.5rem;
+        padding: 2rem 0;
+        
+        li {
+            
+           a {
+            margin: 0 1.5rem;
+            display:inline;
+            &:hover {
+                color: $rojologo;
+                border-bottom: 1px solid $rojologo;
+            }
+           }
+        }
+    }
+}
+// SERVICIOS
+.cabeceraservicios {
+    height: 80vh;
+    position: relative;
+    background-color: rgb(0 0 0 / 34%);
+    .imagencabecera img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        z-index: -1;
+        background-color: rgb(0 0 0 / 34%);
+        position: absolute;
+    }
+    .overlay {
+        width: 100%;
+        height: 100%;
+        color: white;
+        font-size: 50px;
+        text-shadow: 1px 1px 0px black;
+        h1 {
+            text-align: center;
+            text-transform: uppercase;
+            color: white;
+            font-size: 5rem;
+        }
+    }
+    .flecha a {
+        font-size: 4rem;
+        position: absolute;
+        bottom: $sizeM;
+        i {
+            text-shadow: 1px 1px 0px black; 
+        }
+    }
+}
+.serviciosarquitectura {
+    padding: 12rem 0;
+    column-gap: 8rem;
+    .col50 {
+        h2 {
+            text-transform: initial;
+            font-size: 3.5rem;
+        }
+        p {
+            padding-top: 0;
+            padding-bottom: 2.5rem;
+        }
+        hr {
+            color: $rojologo;
+            width: 50%;
+            margin: 2rem 0;
+        }
+    }
+}
+.serviciointegral, .serviciointeriorismo, .serviciointegral__movil, .serviciointeriorismo__movil  {
+    background-color: #202020;
+    flex-wrap: wrap;
+    img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+        transition: 0.5s;
+    }
+    .coltexto {
+        padding: 10rem 0rem;
+        
+
+    }
+    .coltexto * {
+        width: 80%;
+        margin: auto;
+    }
+    .col50 {
+        flex: 1;
+        width: 100%;
+        h2 {
+            text-transform: initial;
+            font-size: 3rem;
+            color: white;
+        }
+        p {
+            padding-top: 0;
+            padding-bottom: 2.5rem;
+            color: white;
+        }
+        hr {
+            color: $rojologo;
+            width: 30%;
+            margin: 3rem auto;
+        }
+        h3 {
+            text-transform: uppercase;
+            color: $rojologo;
+            font-size: 2rem;
+        }
+        .btn {
+            display: block;
+            border: 1px solid lightgrey;
+            color: lightgrey;
+            padding: 18px 30px;
+            cursor: pointer;
+            text-align: center;
+            transition: 0.3s;
+            &:hover {
+                padding: 18px 50px;
+                color: $rojologo;
+                border: 1px solid $rojologo;
+                a {
+                    color: $rojologo;
+                }
+            }
+            a {
+                text-decoration: none;
+                font-family: $poppins;
+                font-weight: 800;
+                font-size: 1.5rem;
+                color: lightgray;
+            }
+            
+        }
+        .cuadrado {
+            position: absolute;
+            background-color: rgb(17 17 17 /44%);
+            color: white;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: $sizeM;
+            
+    
+            
+            img {
+                position: absolute;
+                z-index: -1;
+                object-fit: cover;
+                
+                
+                
+            }
+            h3 {
+                text-shadow: 1px 1px 0px black;
+                text-align: center;
+                text-transform: initial;
+                color: white;
+                font-size: 4rem;
+                cursor: pointer;
+            }
+        }
+    }
+    
+}
+.serviciointegral__movil, .serviciointeriorismo__movil {
+    display: none;
+}
+.colfoto {
+    
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.colfoto:hover > img{
+    transform: scale(1.2);
+}
+.serviciomarketing  {
+    flex-wrap: wrap;
+    img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+        transition: 0.5s;
+    }
+    .coltexto {
+        padding: 10rem 0;
+    }
+    .coltexto * {
+        width: 80%;
+        margin: auto;
+    }
+    .col50 {
+        flex: 1;
+        width: 100%;
+        h2 {
+            text-transform: initial;
+            font-size: 3rem;
+        }
+        p {
+            padding-top: 0;
+            padding-bottom: 2.5rem;
+        }
+        hr {
+            color: $rojologo;
+            width: 30%;
+            margin: 3rem auto;
+        }
+        h3 {
+            text-transform: uppercase;
+            color: $rojologo;
+            font-size: 2rem;
+        }
+        .btn {
+            display: block;
+            border: 1px solid $rojologo;
+            color: $rojologo;
+            padding: 18px 30px;
+            cursor: pointer;
+            text-align: center;
+            transition: 0.3s;
+            &:hover {
+                padding: 18px 50px;
+                color: $rojologo;
+                border: 1px solid $rojologo;
+                a {
+                    color: $rojologo;
+                }
+            }
+            a {
+                text-decoration: none;
+                font-family: $poppins;
+                font-weight: 800;
+                font-size: 1.5rem;
+                color: $rojologo;
+            }
+            
+        }
+        .cuadrado {
+            position: absolute;
+            background-color: rgb(17 17 17 /44%);
+            color: white;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: $sizeM;
+            
+    
+            
+            img {
+                position: absolute;
+                z-index: -1;
+                object-fit: cover;
+                
+                
+                
+            }
+            h3 {
+                text-shadow: 1px 1px 0px black;
+                text-align: center;
+                text-transform: initial;
+                color: white;
+                font-size: 4rem;
+                cursor: pointer;
+            }
+        }
+    }
+    
+}
+.preguntasfrecuentes {
+    padding-bottom: 12rem;
+    .seccionfaq {
+        .seccionfaq__titulo {
+            font-weight: 600;
+            color: black;
+            pointer-events: none;
+            border-bottom: 1px solid #c0c0c0;
+            position: relative;
+            padding: 10px 0;
+            margin-bottom: 2rem;
+            cursor: pointer;
+            pointer-events: initial;
+            &::before {
+            content: '+';
+            color: $rojologo;
+            position: absolute;
+            right: 0;
+            transition: 0.1s;
+            transform: rotate(0deg);
+            transform-origin: center;
+            }
+            &.activo::before {
+            transform: rotate(45deg);
+            }
+        }
+        .seccionfaq__texto {
+            padding-left: 0;
+            display: none;
+            &.activo {
+                display: block;
+            }
+        }
+    }
+}
+@media (max-width: 1200px) {
+    .wrapper {
+        width: 80%;
+    }
+    .menu .wrapper {
+        width: 100%;
+    }
+    h4 {
+       font-size: 1.5rem;
+    }
+}
+@media (max-width: 800px) {
+    body {
+        padding-top: 85px;
+    }
+    .menu {
+        align-items: center;
+        justify-content: flex-start;
+        &__list {
+            align-items: initial;
+            li {
+        
+                a {
+                    font-size: 2rem;
+                    border-bottom: 1px solid #2c2c2c;
+                    margin: 0;
+                    padding: 15px 0;
+
+                }
+            }
+        }
+        &__final {
+            .btn {
+                padding: 16px 22px;
+            }
+            .redes { 
+            padding-top: $sizeS;
+            }
+        }
+    }
+    .col.col50, .col50 {
+        flex-basis: 51%;
+    }
+    .col33 {
+        flex: none;
+        width: 100%;
+    }
+    .galeria, footer  {
+        flex-direction: column;  
+    }
+    .subfila {
+        width: 100%;
+    }
+    .col .overlay {
+        opacity: 1;
+    }
+    .servicios, .filas, .faq {
+        flex-direction: column;
+        row-gap: $sizeM;
+        .col1, .col2 {
+            width: 100%;
+        }
+
+    }
+    .comotrabajamos {
+        .cuadrado {
+            padding: 100px 60px;
+        }
+    }
+    h4 {
+        font-size: 2rem;
+    }
+    .iconos, .textoslegales, .serviciosarquitectura, .serviciointegral,  .serviciomarketing, .serviciointeriorismo {
+        flex-direction: column;
+    }
+    footer {
+        .footerfinal {
+            flex-wrap: wrap;
+        }
+        .col50 {
+            iframe {
+                height: 30rem;
+                width: 100%;
+            }
+            .footerredes, .iconoscontacto {
+                width: 100%;
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+        
+    }
+    .barrafinal {
+        li {
+            padding-bottom: 1rem;
+        }
+    }
+    .serviciointegral__movil, .serviciointeriorismo__movil {
+        display: inline-block;
+        .colfoto {
+            .cuadrado {
+               h3 {
+                font-size: 3rem;
+               }
+            }
+        }
+    }
+    .serviciointegral, .serviciointeriorismo {
+        display: none;
+        
+    }
+    .serviciomarketing {
+        .colfoto {
+            .cuadrado {
+               h3 {
+                font-size: 3rem;
+               }
+            }
+    }
+    .barrafinal {
+        .textoslegales {
+            li {
+                a {
+                    display: block;
+                }
+            }
+        }
+    }
+    
+}
+}
+@media (max-width: 600px) {
+    h2 {
+        font-size: 40px;
+    }
+    .movil {
+        display: block;
+    }
+    .desktop {
+        display: none;
+    }  
+    .galeria, .col25 {
+        width: 100%;
+        flex-direction: column;
+    }
+    .col25 img {
+        width: fit-content;
+    }
+    .galeria img {
+        flex: 1;
+        aspect-ratio: 1;
+        width: 100%;
+    }
+    .comotrabajamos {
+        .cuadrado {
+            padding: 50px 60px;
+        }
+    }
+    header {
+        padding: 1.5rem 0;
+        .logoblanco, .logo {
+            img {
+                width: 16rem;
+            }
+        }
+    }
+    .cabeceraservicios {
+        .overlay {
+            h1 {
+                font-size: 4rem;
+            }
+        }
+        
+        
+    }
+    
+}

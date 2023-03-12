@@ -15,7 +15,7 @@ Página web para el estudio de arquitectura Sibraq
 [![JS](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://es.wikipedia.org/wiki/JavaScript)
 
 ## Vista previa del proyecto
-Si quieres hechas un vistazo al proyecto, te recomiendo:
+Si quieres ver el proyecto, te recomiendo:
 
 ![Captura del proyecto](https://github.com/AuroraJover/sibraq/blob/main/img/grid.jpg)
 ![Captura del proyecto](https://github.com/AuroraJover/sibraq/blob/main/img/faq.jpg)
